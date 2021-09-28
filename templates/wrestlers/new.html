@@ -1,14 +1,17 @@
-
+{% extends 'base.html' %}
 
 {% block content %}
 
-<h2> Add New Wrestler</h2>
+
+<h2 class=wrestler> Add New Wrestler</h2>
+<link rel="stylesheet" href="static/style.css">
 
 <form action="/wrestlers" method="POST">
     <div>
         <label for="name">Name</label>
         <input type="text" id="name" name="name">
-        <label for="wrestler-name">Wrestler Name</label>
+
+        <input type="submit">
 
     </div>
 </form>

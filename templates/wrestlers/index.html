@@ -10,8 +10,12 @@
     <p>{{ wrestler.name }}</p>
 
     <a href="/wrestlers"></a>
+
+    <form action="/wrestler/{{ wrestler.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
    
 </section>
+
     
 {% endfor %}
     

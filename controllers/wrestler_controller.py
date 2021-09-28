@@ -18,3 +18,24 @@ def show_all_wrestlers():
 def show_wrestler(id):
     wrestler = wrestler_repo.select(id)
     return render_template("index.html", title=wrestler, wrestler=wrestler)
+
+@wrestler_blueprint.route("/wrestlers/new")
+def add_wrestler():
+    return render_template("wrestlers/new.html")
+
+@wrestler_blueprint.route("/wrestlers", methods=["POST"])
+def create_wrestler():
+    name = request.form["name"]
+    new_wrestler = Wrestler(name)
+    wrestler_repo.save(new_wrestler)
+    return redirect("/wrestlers")
+
+@wrestler_blueprint.route("/wrestlers/<id>/edit")
+def edit_wrestler(id):
+    wrestler = wrestler_repo.select(id)
+    return render_template('wrestlers/update.html', wrestler=wrestler)
+
+@wrestler_blueprint.route("/wrestlers/<id>/delete", methods=["POST"])
+def delete_wrestler(id):
+    human_repository.delete(id)
+    return redirect("/wrestlers")

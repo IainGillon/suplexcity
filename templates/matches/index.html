@@ -11,6 +11,10 @@
     <p>Winner = {{match.result.name}}</p>
 
     <a href="/matches"></a>
+
+
+    <form action="/matches/{{ match.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
    
 </section>
     

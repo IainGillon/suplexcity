@@ -23,7 +23,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        wrestler = Wrestler(row["name"], row["points"], row["id"])
+        wrestler = Wrestler(row["name"], row["id"])
         wrestlers.append(wrestler)
     return wrestlers
 

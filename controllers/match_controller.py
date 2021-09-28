@@ -13,9 +13,12 @@ def show_all_matches():
     return render_template("/matches/index.html", title="match", matches=matches)
 
  
-# @match_blueprint.route("/matches")
-# def show_match(id):
-#     match = match_repo.select(id)
-#     return render_template(index.html, title=match, match=match)
+@match_blueprint.route("/matches", methods=["POST"])
+def create_match():
+    wrestler1 = request.form["wreslter 1"]
+    wrestler2 = request.form["wrestler 2"]
+    winner = request.form["Winner"]
+    new_match = Wrestler(wrestler1, wrestler2, winner)
+    match_repo.save(new_match)
 
-    
+    return render_template("/matches/new.html", title = "match", match="match" )

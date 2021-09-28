@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block content  %}
+
+<h2>Wrestlers</h2>
+
+{% for wrestler in in wreslters %}
+
+<section>
+    <p>{{ wrestler.name }}</p>
+
+    <a href="/wrestlers"></a>
+   
+</section>
+    
+{% endfor %}
+    
+{% endblock  %}

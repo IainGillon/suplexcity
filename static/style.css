@@ -1,0 +1,17 @@
+body{
+    background-color: black;
+    text-align:center;
+    color: white;
+}
+
+header {
+    display: block;
+    margin-left: auto;
+    margin-left: auto;
+    width: 50%;
+}
+
+body > a {
+    font-size: 50px;
+    color: white;
+}

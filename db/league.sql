@@ -8,13 +8,17 @@ CREATE TABLE wrestlers (
     points INT 
 );
 
-CREATE TABLE league (
-    id SERIAL PRIMARY KEY,
-    -- wrestler_id INT REFERENCES Wrestler(id)
+-- CREATE TABLE league (
+--     id SERIAL PRIMARY KEY
 
-);
+
+-- );
 
 CREATE TABLE matches (
     id SERIAL PRIMARY KEY,
-    -- wrestler_id INT REFERENCES Wrestler(id)
+    wrestler1_id INT REFERENCES wrestlers(id),
+    wrestler2_id INT REFERENCES wrestlers(id),
+    result VARCHAR(255)
+    
+
 );

@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 
 app.register_blueprint(wrestler_blueprint)
+app.register_blueprint(match_blueprint)
 
 @app.route("/")
 def home():

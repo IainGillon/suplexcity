@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+
+<h2>Matches</h2>
+
+{% for match in matches %}
+
+<section>
+    <p>{{ match.wrestler1.name }} vs {{match.wrestler2.name}}</p>
+    <p>Winner = {{match.result.name}}</p>
+
+    <a href="/matches"></a>
+   
+</section>
+    
+{% endfor %}
+    
+{% endblock  %}

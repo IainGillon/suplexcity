@@ -4,13 +4,15 @@ from models.wrestler import Wrestler
 import repositories.league_repo as league_repo
 import repositories.match_repo as match_repo
 import repositories.wrestler_repo as wrestler_repo
+import pdb
 
-wrestler_blueprint = Blueprint("match", __name__)
+wrestler_blueprint = Blueprint("wrestler", __name__)
 
 @wrestler_blueprint.route("/wrestlers")
 def show_all_wrestlers():
     wrestlers = wrestler_repo.select_all()
-    return render_template("index.html", title=wrestlers, wrestlers=wrestlers)
+    # pdb.set_trace()
+    return render_template("/wrestlers/index.html", title=wrestlers, wrestlers=wrestlers)
 
 @wrestler_blueprint.route("/wrestlers/<id>")
 def show_wrestler(id):

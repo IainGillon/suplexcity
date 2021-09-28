@@ -10,9 +10,10 @@ def save(wrestler):
     return wrestler
 
 def select(id):
-    sql = 'SELECT FROM wrestlers WHERE id = %s'
+    sql = 'SELECT * FROM wrestlers WHERE id = %s'
     values = [id]
-    run_sql(sql)
+    result = run_sql(sql, values)[0]
+    return result
 
 def select_all():
     wrestlers = []

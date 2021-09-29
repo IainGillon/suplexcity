@@ -20,9 +20,11 @@ def new_match():
  
 @match_blueprint.route("/matches", methods=["POST"])
 def create_match():
-    wrestler1 = request.form["wreslter 1"]
-    wrestler2 = request.form["wrestler 2"]
-    winner = request.form["Winner"]
+    wrestler1_id = request.form["wrestler1_id"]
+    wrestler2_id = request.form["wrestler2_id"]
+    winner = request.form["winner"]
+    wrestler1 = wrestler_repo.select(wrestler1_id)
+    wrestler2 = wrestler_repo.select(wrestler2_id)
     new_match = Wrestler(wrestler1, wrestler2, winner)
     match_repo.save(new_match)
 

@@ -16,9 +16,7 @@ import pdb
 
 def save(match):
     sql = "INSERT INTO matches ( wrestler1_id, wrestler2_id, result ) VALUES (%s, %s, %s) RETURNING id"
-    # import pdb
-    # pdb.set_trace()
-    values = [match.wrestler1.id, match.wrestler2.id, match.result.id]
+    values = [match.wrestler1.id, match.wrestler2.id, match.result]
     results = run_sql(sql, values)
     match.id = results[0]['id']
     return match

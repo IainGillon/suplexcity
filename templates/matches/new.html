@@ -4,19 +4,29 @@
     
 
 
-<h2 class=wrestler> Add New Match</h2>
-<link rel="stylesheet" href="static/style.css">
+<h2 class="wrestler"> Add New Match</h2>
 
 <form action="/matches" method="POST">
     <div>
-        <label for="wreslter_1">Wrestler 1 Name</label>
-        <input type="text" id="wrestler_1" name="wrestler1_id">
 
+        <label for="wrestler_1">Wrestler 1 Name</label>
+        <select name="wrestler1_id" id="wrestler1">
+            {% for wrestler in wrestlers %}
+                <option value="{{ wrestler.id}}">{{wrestler.name}}</option>
+            {% endfor %}
+        </select>
         <label for="wrestler_2">Wrestler 2 Name</label>
-        <input type="text" id="wrestler_2" name="wrestler2_id">
-
+        <select name="wrestler2_id" id="wrestler2">
+            {% for wrestler in wrestlers %}
+                <option value="{{ wrestler.id}}">{{wrestler.name}}</option> 
+            {% endfor %}
+        </select>
         <label for="winner">Winner</label>
-        <input type="text" id="winner" name="winner">
+        <select name="winner" id="winner">
+            {% for wrestler in wrestlers %}
+                <option value="{{ wrestler.id}}">{{wrestler.name}}</option> 
+            {% endfor %}
+        </select>
 
         <input type="submit">
 

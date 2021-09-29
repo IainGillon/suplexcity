@@ -5,10 +5,10 @@ import repositories.wrestler_repo as wrestler_repo
 import pdb
 
 
-def get_results(winner, loser, match_type):
-    if winner == Wrestler.name:
-        Wrestler.points += 2
-    return f"{winner} defeats {loser}"
+# def get_results(winner, loser, match_type):
+#     if winner == Wrestler.name:
+#         Wrestler.points += 2
+#     return f"{winner} defeats {loser}"
 
 
 
@@ -40,15 +40,16 @@ def select_all():
         wrestler1 = wrestler_repo.select(row['wrestler1_id'])
         wrestler2 = wrestler_repo.select(row['wrestler2_id'])
         result = wrestler_repo.select(row['result'])
+        id = row['id']
         # pdb.set_trace()
-        match = Match(wrestler1, wrestler2, result)
+        match = Match(wrestler1, wrestler2, result, id)
         matches.append(match)
     return matches
 
 def delete(id):
     sql = "DELETE FROM matches WHERE id = %s"
     values = [id]
-    run_sql(sql)
+    run_sql(sql, values)
 
 def delete_all():
     sql = "DELETE FROM matches"

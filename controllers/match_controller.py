@@ -13,7 +13,7 @@ def show_all_matches():
     matches = match_repo.select_all()
     return render_template("/matches/index.html", title="match", matches=matches)
 
-@match_blueprint.route("/matches/new.html")
+@match_blueprint.route("/matches/new")
 def new_match():
     wrestlers=wrestler_repo.select_all()
     return render_template("/matches/new.html")
